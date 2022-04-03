@@ -263,8 +263,6 @@ function App() {
     setSelectedServer(serverId)
   }
 
-  console.log(selectedServer)
-
   const convertDateFormat = timeStamp => {
 
     var date, month, year, hours, minutes
