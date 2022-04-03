@@ -6,7 +6,7 @@ import { io } from 'socket.io-client'
 import { fetchAPI } from './services/fetchAPI';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ScrollToBottom from 'react-scroll-to-bottom';
-import useWindowDimensions from './services/windowsDimension';
+import useWindowDimensions from './services/useWindowsDimension';
 import { makeStyles } from '@mui/styles';
 import { height } from '@mui/system';
 import { Skeleton, Tooltip } from '@mui/material';
