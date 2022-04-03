@@ -1,0 +1,64 @@
+ .server-name {
+ 
+   margin: 1vw;
+   font-size: calc(10px + 2vmin);
+   color: white;
+ }
+ 
+ .main-box {
+ 
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   background-color: #282c34;
+ }
+ 
+ .box-chat {
+ 
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 600px;
+   overflow-y: scroll;
+   background-color: #61dafb;
+ }
+ 
+ .message {
+   
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: space-between;
+ 
+   width: 100%;
+   margin: auto;
+   padding: 1.5vmax;
+ }
+ 
+ .upper-message {
+ 
+   display: flex;
+   flex-direction: row;
+   align-items: flex-end;
+   margin-bottom: .5vw;
+ }
+ 
+ .lower-message {
+ 
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+ 
+   width: 100%;
+   margin-left: 1vw;
+ 
+   cursor: pointer;
+ }
+ 
+ .lower-message .delete-button:hover {
+ 
+   color: rgb(143, 181, 250);
+ }
+
+ 
