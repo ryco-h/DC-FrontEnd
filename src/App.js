@@ -226,9 +226,7 @@ function App() {
     setMessages(messages.filter(message => message._id !== data.idMessage))
   })
 
-  const [dataServerById, setDataServerById] = useState([])
   const [listServerUser, setListServerUser] = useState([])
-  const [dataChatByServer, setDataChatByServer] = useState([])
   
   const [dataUser, setDataUser] = useState('')
   console.log(messages.length)
