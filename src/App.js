@@ -2,7 +2,6 @@ import React, { createRef, useEffect, useLayoutEffect, useState } from 'react';
 import { useParams, Link } from "react-router-dom";
 import axios from 'axios'
 import './App.css';
-import { io } from 'socket.io-client'
 import { fetchAPI } from './services/fetchAPI';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ScrollToBottom from 'react-scroll-to-bottom';
@@ -14,6 +13,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 // https://team-dev1999.herokuapp.com-/-
 // http://localhost:5000/
+import { io } from 'socket.io-client'
 const socket = io('http://localhost:5000/', {
    
    withCredentials: true,
@@ -229,7 +229,7 @@ function App() {
   const [listServerUser, setListServerUser] = useState([])
   
   const [dataUser, setDataUser] = useState('')
-  console.log(messages.length)
+  console.log(width, height)
 
   const getDataServer = () => { 
 

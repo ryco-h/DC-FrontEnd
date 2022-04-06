@@ -1,7 +1,18 @@
-import React from 'react';
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from "react-router-dom";
 import { makeStyles } from '@mui/styles';
 import useWindowDimensions from '../../services/useWindowsDimension';
+import axios from 'axios';
+import { withCookies, useCookies, Cookies } from 'react-cookie';
+
+import { io } from 'socket.io-client'
+const socket = io('http://localhost:5000/', {
+   
+   withCredentials: true,
+   extraHeaders: {
+      "my-custom-header": "abcd"
+   }
+})
 
 let useStyles = makeStyles({
 
@@ -56,7 +67,7 @@ let useStylesLogin = makeStyles({
       width: 'inherit'
    }
 })
-export default function Account() {
+function Account() {
 
    const location = useLocation()
    const {width, height} = useWindowDimensions()
@@ -80,6 +91,31 @@ export default function Account() {
 function Login() {
 
    const classes = useStylesLogin()
+   const navigate = useNavigate()
+   const [cookies, setCookies] = useCookies(['access_token'])
+
+   socket.on('LogIn', data => {
+
+      setCookies('account_id', JSON.stringify(data.userAccount_id), {path: '/'})
+      setCookies('access_token', JSON.stringify(data.token), {path: '/'})
+   })
+
+   const [loginData, setLoginData] = useState({
+
+      username: 'dudu',
+      password: 'subagjo'
+   })
+
+   const handleLogin = () => {
+
+      axios.post('http://localhost:5000/client/users/login', loginData)
+      .then(() => {
+         navigate('/@me')
+      })
+      .catch(err => {
+         alert(err.response.data)
+      })
+   }
 
    return(
       <div className={classes.root}>
@@ -96,7 +132,7 @@ function Login() {
                <input name='password' className={classes.legendBox}/>
             </div>
             <div className={classes.legendBox}>
-               <button className={classes.loginButton}>
+               <button className={classes.loginButton} onClick={() => handleLogin()}>
                   Log In
                </button>
             </div>
@@ -115,3 +151,5 @@ function Register() {
       </div>
    )
 }
+
+export default Account

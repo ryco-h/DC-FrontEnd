@@ -1,7 +1,8 @@
 import React from 'react'
 import { Route, Routes, Redirect } from 'react-router-dom'
-import App from '../App'
+import Main from '../components/Main/Main'
 import Account from '../components/Account/Account'
+import Home from '../components/Home/Home'
 import NotFoundPage from './404'
 
 export default function Routers() {
@@ -10,11 +11,10 @@ export default function Routers() {
       <Routes>
          <Route path='/login' exact element={<Account/>}/>
          <Route path='/register' exact element={<Account/>}/>
-         <Route path='/channel' exact element={<App/>}>
-            <Route path=':idUser' element={<App/>}>
-               <Route path=':idServer' element={<App/>}>
-                  <Route path=':idTextChannel' element={<App/>}/>
-               </Route>
+         <Route path='/@me' exact element={<Main/>}/>
+         <Route path='/channel' exact element={<Main/>}>
+            <Route path=':idServer' element={<Main/>}>
+               <Route path=':idTextChannel' element={<Main/>}/>
             </Route>
          </Route>
          <Route path='*' element={<NotFoundPage/>}/>
