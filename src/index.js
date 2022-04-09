@@ -4,14 +4,16 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Routers from './services/routes';
 import { BrowserRouter } from 'react-router-dom'
-import { CookiesProvider } from 'react-cookie';
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+
+const queryClient = new QueryClient();
 
 ReactDOM.render(
-  <CookiesProvider>
+  <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <Routers/>
     </BrowserRouter>
-  </CookiesProvider>,
+  </QueryClientProvider>,
   document.getElementById('root')
 );
 

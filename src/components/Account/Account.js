@@ -5,6 +5,9 @@ import useWindowDimensions from '../../services/useWindowsDimension';
 import axios from 'axios';
 import { withCookies, useCookies, Cookies } from 'react-cookie';
 
+// http://localhost:5000-
+// https://team-dev1999.herokuapp.com-
+
 import { io } from 'socket.io-client'
 const socket = io('http://localhost:5000/', {
    
@@ -98,12 +101,13 @@ function Login() {
 
       setCookies('account_id', JSON.stringify(data.userAccount_id), {path: '/'})
       setCookies('access_token', JSON.stringify(data.token), {path: '/'})
+      console.log(data.token)
    })
 
    const [loginData, setLoginData] = useState({
 
-      username: 'dudu',
-      password: 'subagjo'
+      username: 'guntur',
+      password: 'guntur'
    })
 
    const handleLogin = () => {

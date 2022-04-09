@@ -1,3 +1,5 @@
+// http://localhost:5000-
+// https://team-dev1999.herokuapp.com-
 export async function fetchUser(idUser, accessToken) {
 
   if(idUser && accessToken) {
@@ -58,8 +60,8 @@ export async function fetchServer(idServer, accessToken) {
     return {
       status: 400,
       message: "Invalid data!"
+    }
   }
-}
 }
 
 export async function fetchAPI(param) {
@@ -69,7 +71,7 @@ export async function fetchAPI(param) {
    headers.append("Accept", "application/json");
    headers.append("Origin", "http://localhost:3000");
    // http://localhost:5000
-   // https://team-dev1999.herokuapp.com/
+   // http://localhost:5000/
    const res = await fetch(`http://localhost:5000/client/${param}`, {
      method: "GET",
      mode: "cors",

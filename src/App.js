@@ -14,7 +14,7 @@ import AddIcon from '@mui/icons-material/Add';
 // https://team-dev1999.herokuapp.com-/-
 // http://localhost:5000/
 import { io } from 'socket.io-client'
-const socket = io('http://localhost:5000/', {
+const socket = io('https://team-dev1999.herokuapp.com/', {
    
    withCredentials: true,
    extraHeaders: {
@@ -499,5 +499,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

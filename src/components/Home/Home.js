@@ -3,7 +3,7 @@ import { withCookies, useCookies, Cookies } from 'react-cookie';
 import { useNavigate } from "react-router-dom";
 
 import { io } from 'socket.io-client'
-const socket = io('http://localhost:5000/', {
+const socket = io('https://team-dev1999.herokuapp.com/', {
    
    withCredentials: true,
    extraHeaders: {
